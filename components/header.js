@@ -9,6 +9,21 @@ import Avatar from "./avatar"
 function Header() {
     const router = useRouter();
     const searchInputRef = useRef(null);
+    const search = (e) =>{
+        e.preventDefault();
+        const term = searchInputRef.current.value;
+    
+    
+        if(!term) return;
+    
+        router.push(`/search?term=${term}`);
+        
+        
+    
+    
+    
+    
+      } 
     
     return (
         <header className=" sticky top-0 flex justify-between items-center p-2  bg-white">
@@ -32,6 +47,7 @@ function Header() {
                          />
                         <MicrophoneIcon className="h-7 text-blue-600 hidden sm:inline-flex border-l-2 border-gray-300 pl-2"/>
                         <SearchIcon className="h-7 text-blue-600 hidden sm:inline-flex"/>
+                        <button onClick={search} type="submit"></button>
                     </form>
                     <Avatar className='ml-auto' url='https://gravatar.com/avatar/ead6565b8ca1c552c816ec17574210b9?s=400&d=robohash&r=x'/>
             </div>
